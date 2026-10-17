@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Find2Fix | ผลลัพธ์ช่างที่เหมาะสม</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body data-page="matching">
+    <header class="site-header">
+      <div class="container header-inner">
+        <a href="index.html" class="brand" aria-label="Find2Fix home">
+          <img class="brand-logo" src="image/f2f_logo02.jpg" alt="โลโก้ Find2Fix" />
+          <span class="brand-text"><strong>Find</strong>2Fix</span>
+        </a>
+        <nav class="main-nav" aria-label="เมนูหลัก">
+          <a href="index.html">หน้าหลัก</a>
+          <a href="search.html">ค้นหาช่างซ่อม</a>
+          <a href="index.html#how-it-works">Community or How It Works</a>
+          <a href="search.html" class="btn btn-primary">หาช่างซ่อม</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="page-shell">
+      <div class="container">
+        <header class="page-header">
+          <div class="page-header-card">
+            <h1>ผลลัพธ์ช่างที่เหมาะสม</h1>
+            <div class="progress-steps" aria-label="ขั้นตอนการค้นหา">
+              <div class="progress-step"><span class="dot"></span> เลือกสิ่งของ</div>
+              <div class="progress-step"><span class="dot"></span> เลือกอาการเสีย</div>
+              <div class="progress-step active"><span class="dot"></span> ระบุพื้นที่</div>
+            </div>
+          </div>
+        </header>
+
+        <section class="matching-layout section">
+          <div>
+            <div class="panel">
+              <h3>สรุปคำขอซ่อม</h3>
+              <ul class="summary-list" id="matchingSummary"></ul>
+              <div class="inline-actions">
+                <a href="search.html" class="btn btn-secondary">กลับไปแก้ไข</a>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="panel">
+              <h3>ช่างที่แนะนำ</h3>
+              <p class="section-sub">ระบบจะจัดอันดับตามความถนัดในการซ่อม อาการเสีย และพื้นที่ที่เลือก</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="container">
+            <div id="techResults" class="tech-grid"></div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <a href="index.html" class="brand" aria-label="Find2Fix home">
+          <img class="brand-logo" src="image/f2f_logo.jpg" alt="โลโก้ Find2Fix" />
+          <span class="brand-text"><strong>Find</strong>2Fix</span>
+        </a>
+        <div class="footer-links">
+          <a href="index.html">หน้าแรก</a>
+          <a href="search.html">ค้นหาช่าง</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/data.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>

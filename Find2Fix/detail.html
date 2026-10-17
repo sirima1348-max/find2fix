@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Find2Fix | รายละเอียดช่างและนัดหมาย</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body data-page="detail">
+    <header class="site-header">
+      <div class="container header-inner">
+        <a href="index.html" class="brand" aria-label="Find2Fix home">
+          <img class="brand-logo" src="image/f2f_logo02.jpg" alt="โลโก้ Find2Fix" />
+          <span class="brand-text"><strong>Find</strong>2Fix</span>
+        </a>
+        <nav class="main-nav" aria-label="เมนูหลัก">
+          <a href="index.html">หน้าหลัก</a>
+          <a href="search.html">ค้นหาช่างซ่อม</a>
+          <a href="index.html#how-it-works">ขั้นตอนการดำเนินงาน</a>
+          <a href="search.html" class="btn btn-primary">หาช่างซ่อม</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="page-shell">
+      <div class="container detail-layout">
+        <div id="detailContent">
+          <section class="panel booking-stage active" data-stage="profile" id="profileStage">
+            <div class="detail-header">
+              <h2>ข้อมูลช่างซ่อม</h2>
+              <div class="rating-badge" id="currentRating">★ 0.0</div>
+            </div>
+            <div id="technicianInfo"></div>
+            <div class="form-group">
+              <h3>ความเชี่ยวชาญ</h3>
+              <div id="detailCategories" class="tech-meta"></div>
+            </div>
+            <div class="form-group">
+              <h3>ทักษะที่เกี่ยวข้อง</h3>
+              <div id="detailSkills" class="tech-meta"></div>
+            </div>
+            <div class="form-group">
+              <h3>ตัวอย่างผลงาน</h3>
+              <div id="workSamples" class="gallery-grid"></div>
+            </div>
+            <div class="form-actions">
+              <button type="button" class="btn btn-primary" id="goToSchedule">เลือกวันและเวลา</button>
+            </div>
+          </section>
+
+          <section class="panel booking-stage" data-stage="schedule" id="scheduleStage">
+            <div class="detail-header">
+              <h2>เลือกวันและเวลานัดหมาย</h2>
+            </div>
+            <div id="scheduleList"></div>
+            <div id="scheduleEmpty" class="empty-state" style="display:none;">
+              <h3>ยังไม่มีช่วงเวลาให้เลือก</h3>
+              <p>ช่างท่านนี้ยังไม่มีคิวว่างในข้อมูลจำลอง กรุณาเลือกช่างท่านอื่นหรือกลับไปปรับเปลี่ยนการค้นหา</p>
+            </div>
+            <div id="slotError" class="field-error" aria-live="polite"></div>
+            <div class="form-actions">
+              <button type="button" class="btn btn-secondary" id="backToProfile">กลับ</button>
+              <button type="button" class="btn btn-primary" id="goToReview">ต่อไป</button>
+            </div>
+          </section>
+
+          <section class="panel booking-stage" data-stage="review" id="reviewStage">
+            <div class="detail-header">
+              <h2>ตรวจสอบและยืนยันการนัดหมาย</h2>
+            </div>
+            <form id="bookingForm" novalidate>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="customerName">ชื่อผู้จอง</label>
+                  <input id="customerName" name="customerName" type="text" placeholder="กรอกชื่อผู้จอง" />
+                  <div class="field-error" id="nameError" aria-live="polite"></div>
+                </div>
+                <div class="form-group">
+                  <label for="contactNumber">เบอร์โทรศัพท์</label>
+                  <input id="contactNumber" name="contactNumber" type="tel" placeholder="081-234-5678" />
+                  <div class="field-error" id="phoneError" aria-live="polite"></div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="repairNote">หมายเหตุเพิ่มเติม (ไม่บังคับ)</label>
+                <textarea id="repairNote" name="repairNote" placeholder="เช่น ต้องการให้ตรวจเช็กอุปกรณ์ก่อนเดินทาง"></textarea>
+              </div>
+
+              <div class="summary-box">
+                <h4>รายละเอียดนัดหมาย</h4>
+                <ul class="summary-list">
+                  <li><span>ช่างซ่อม:</span><strong id="reviewTechnician">-</strong></li>
+                  <li><span>ประเภท:</span><strong id="reviewItem">-</strong></li>
+                  <li><span>อาการเสีย:</span><strong id="reviewSymptoms">-</strong></li>
+                  <li><span>วันที่:</span><strong id="reviewDate">-</strong></li>
+                  <li><span>เวลา:</span><strong id="reviewTime">-</strong></li>
+                  <li><span>ราคาโดยประมาณ:</span><strong id="reviewPrice">-</strong></li>
+                  <li><span>ชื่อผู้จอง:</span><strong id="reviewCustomer">-</strong></li>
+                  <li><span>เบอร์:</span><strong id="reviewContact">-</strong></li>
+                  <li><span>หมายเหตุ:</span><strong id="reviewNote">-</strong></li>
+                </ul>
+              </div>
+
+              <div class="inline-actions">
+                <button type="button" class="btn btn-secondary" id="backToSchedule">กลับไปแก้ไข</button>
+                <button type="submit" class="btn btn-primary" id="confirmBookingBtn">ยืนยันการนัดหมาย</button>
+              </div>
+            </form>
+          </section>
+
+          <section class="panel booking-stage" data-stage="confirmation" id="confirmationStage">
+            <div class="confirmation-box">
+              <h3>ยืนยันการนัดหมายสำเร็จ</h3>
+              <p>หมายเลขอ้างอิง: <strong id="confirmationReference">-</strong></p>
+              <ul class="summary-list">
+                <li><span>ช่างซ่อม:</span><strong id="confirmationTechnician">-</strong></li>
+                <li><span>วันที่:</span><strong id="confirmationDate">-</strong></li>
+                <li><span>เวลา:</span><strong id="confirmationTime">-</strong></li>
+                <li><span>สิ่งของ:</span><strong id="confirmationItem">-</strong></li>
+                <li><span>อาการเสีย:</span><strong id="confirmationSymptoms">-</strong></li>
+              </ul>
+              <p>หมายเหตุ: การนัดหมายนี้เป็นการจำลองใน prototype และยังไม่ได้ถูกส่งไปยังช่างจริง</p>
+              <div class="inline-actions">
+                <button type="button" class="btn btn-primary" id="finishAndHome">กลับหน้าแรก</button>
+                <button type="button" class="btn btn-secondary" id="newRepairSearch">เริ่มค้นหาใหม่</button>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <aside class="panel">
+          <h3>ข้อมูลสรุป</h3>
+          <div class="booking-summary">
+            <h4>การนัดหมาย</h4>
+            <ul class="summary-list" id="detailSummary">
+              <li data-summary-field="item"><strong>สิ่งของ:</strong> <span id="summaryItem">-</span></li>
+              <li data-summary-field="symptoms"><strong>อาการเสีย:</strong> <span id="summarySymptoms">-</span></li>
+              <li data-summary-field="date"><strong>วันที่:</strong> <span id="summaryDate">ยังไม่ได้เลือก</span></li>
+              <li data-summary-field="time"><strong>เวลา:</strong> <span id="summaryTime">ยังไม่ได้เลือก</span></li>
+            </ul>
+          </div>
+          <div class="status-box" style="margin-top: 18px;">
+            <h4>ช่างที่เลือก</h4>
+            <p id="currentTechnicianName">-</p>
+            <p id="currentPrice">-</p>
+          </div>
+        </aside>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <a href="index.html" class="brand" aria-label="Find2Fix home">
+          <img class="brand-logo" src="image/f2f_logo.jpg" alt="โลโก้ Find2Fix" />
+          <span class="brand-text"><strong>Find</strong>2Fix</span>
+        </a>
+        <div class="footer-links">
+          <a href="index.html">หน้าแรก</a>
+          <a href="search.html">ค้นหาช่าง</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/data.js"></script>
+    <script src="js/booking.js"></script>
+  </body>
+</html>
