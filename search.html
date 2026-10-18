@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Find2Fix | ค้นหาช่างซ่อม</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body data-page="search">
+    <header class="site-header">
+      <div class="container header-inner">
+        <a href="index.html" class="brand" aria-label="Find2Fix home">
+          <img class="brand-logo" src="image/f2f_logo02.jpg" alt="โลโก้ Find2Fix" />
+          <span class="brand-text"><strong>Find</strong>2Fix</span>
+        </a>
+        <nav class="main-nav" aria-label="เมนูหลัก">
+          <a href="index.html">หน้าหลัก</a>
+          <a href="search.html">ค้นหาช่างซ่อม</a>
+          <a href="index.html#how-it-works">วิธีใช้งาน</a>
+          <a href="search.html" class="btn btn-primary">หาช่างซ่อม</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="page-shell">
+      <div class="container">
+        <header class="page-header">
+          <div class="page-header-card">
+            <h1>ค้นหาช่างซ่อม</h1>
+            <div class="progress-steps" aria-label="ขั้นตอนการค้นหา">
+              <div class="progress-step active"><span class="dot"></span> เลือกสิ่งของ</div>
+              <div class="progress-step"><span class="dot"></span> เลือกอาการเสีย</div>
+              <div class="progress-step"><span class="dot"></span> พื้นที่ให้บริการ</div>
+            </div>
+          </div>
+        </header>
+
+        <section class="search-layout section">
+          <form id="repairSearchForm" novalidate>
+            <div class="panel">
+              <h3>ขั้นตอนที่ 1: เลือกประเภทสิ่งของ</h3>
+              <div class="category-option-grid" id="categoryGrid">
+                <button type="button" class="category-option" data-category-select="appliance" aria-pressed="false">เครื่องใช้ไฟฟ้า</button>
+                <button type="button" class="category-option" data-category-select="electronics" aria-pressed="false">อุปกรณ์อิเล็กทรอนิกส์</button>
+                <button type="button" class="category-option" data-category-select="bike" aria-pressed="false">จักรยาน</button>
+                <button type="button" class="category-option" data-category-select="furniture" aria-pressed="false">เฟอร์นิเจอร์</button>
+                <button type="button" class="category-option" data-category-select="home" aria-pressed="false">ของใช้ในบ้าน</button>
+              </div>
+              <div id="categoryError" class="field-error" aria-live="polite"></div>
+              <input type="hidden" id="selectedCategory" name="selectedCategory" />
+
+              <div class="form-group" style="margin-top: 28px;">
+                <h3>ขั้นตอนที่ 2: เลือกอาการเสีย</h3>
+                <div id="symptomOptions" class="symptom-grid"></div>
+                <div id="symptomError" class="field-error" aria-live="polite"></div>
+                <input type="hidden" id="selectedSymptoms" name="selectedSymptoms" />
+              </div>
+
+              <div class="form-group">
+                <label for="problemDescription">รายละเอียดเพิ่มเติม (ไม่บังคับ)</label>
+                <textarea id="problemDescription" name="problemDescription" placeholder="เช่น ปลั๊กชาร์จอุ่นผิดปกติ หรือกางเกงลมอาการเบรกติด"></textarea>
+              </div>
+
+              <div class="form-group">
+                <label for="serviceArea">พื้นที่ให้บริการ (ไม่บังคับ)</label>
+                <input id="serviceArea" name="serviceArea" type="text" placeholder="เช่น ยานนาวา, ดอนเมือง หรือพื้นที่ใกล้บ้าน" />
+              </div>
+
+              <div class="form-actions">
+                <a href="index.html" class="btn btn-secondary">กลับ</a>
+                <button type="submit" class="btn btn-primary">ต่อไป</button>
+              </div>
+            </div>
+          </form>
+
+          <aside class="panel">
+            <h3>สรุปคำขอ</h3>
+            <div class="search-summary">
+              <div class="summary-box">
+                <h4>คำขอซ่อม</h4>
+                <ul class="summary-list">
+                  <li><span>ประเภท:</span><strong id="miniCategory">ยังไม่เลือก</strong></li>
+                  <li><span>อาการ:</span><strong id="miniSymptoms">ยังไม่เลือก</strong></li>
+                  <li><span>พื้นที่:</span><strong id="miniArea">ไม่ระบุ</strong></li>
+                </ul>
+              </div>
+            </div>
+          </aside>
+        </section>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <a href="index.html" class="brand" aria-label="Find2Fix home">
+          <img class="brand-logo" src="image/f2f_logo.jpg" alt="โลโก้ Find2Fix" />
+          <span class="brand-text"><strong>Find</strong>2Fix</span>
+        </a>
+        <div class="footer-links">
+          <a href="index.html">หน้าแรก</a>
+          <a href="search.html">ค้นหาช่าง</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/data.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
