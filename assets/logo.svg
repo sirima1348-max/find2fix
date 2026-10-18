@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" role="img" aria-labelledby="title desc">
+  <title id="title">Find2Fix placeholder logo</title>
+  <desc id="desc">Neutral fallback logo for Find2Fix while the original branded asset is supplied externally.</desc>
+  <rect width="640" height="640" fill="#F6F3F0"/>
+  <circle cx="320" cy="260" r="150" fill="none" stroke="#F16A21" stroke-width="38"/>
+  <path d="M228 347l-84 84a38 38 0 0 0 54 54l84-84 42 42 38-38-42-42 50-50c28-28 72-26 99 1s29 71 1 99l-55 55-38-38 24-24-42-42-42 42-26-26 42-42-38-38-42 42-48-48 38-38 42 42 38-38-42-42 35-35c28-28 72-26 99 1s29 71 1 99l-23 23-38-38 24-24-42-42-42 42-26-26 42-42-38-38L228 347z" fill="#F16A21"/>
+  <path d="M127 512c42-42 95-54 145-52 24 1 42 8 60 19l-90 90c-16 16-23 26-29 42-12-6-26-13-42-29l-44-70z" fill="#F16A21" opacity="0.9"/>
+</svg>
